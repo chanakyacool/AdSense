@@ -8,7 +8,6 @@ gem 'rails', '3.2.16'
 group :development do 
 	gem 'sqlite3'
 end
- 
 group :production do 
 	gem 'pg'
 end
