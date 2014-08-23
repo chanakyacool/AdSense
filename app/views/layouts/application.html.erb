@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title><%= content_for?(:title) ? yield(:title) : "AdSense" %></title>
+      <%= csrf_meta_tags %>
+      <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+      <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+      <![endif]-->
+      
+      <%= stylesheet_link_tag "application", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+   </head>
+   <body>
+      <div class="navbar navbar-default navbar-static-top">
+         <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">AdSense</a>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+               <ul class="nav navbar-nav"> 
+                     <% if user_signed_in? %>
+                  <li>
+                    Signed in as <%= current_user.email %>. Not you?
+                  </li>
+                  <li>
+                     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+                  </li>
+                  <% else %>
+                  <li><%= link_to "Sign up", new_user_registration_path %> </li>
+                  <li> <%= link_to "Sign in", new_user_session_path %></li>
+                  <% end %>    
+               </ul>
+               <% if current_user %>
+                  <li style="float:right;list-style:none"> Your age is :- <b><%= age(current_user.dob) %> Years</b></li>    
+                  <% end %>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <%= bootstrap_flash %>
+               <%= yield %>
+            </div>
+          
+            <!--/span-->
+         </div>
+         <!--/row-->
+         <footer>
+            <p>&copy; Company 2014</p>
+         </footer>
+      </div>
+      <!-- /container -->
+   </body>
+</html>
