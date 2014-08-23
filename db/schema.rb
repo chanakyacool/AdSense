@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140823103252) do
+ActiveRecord::Schema.define(:version => 20140823132526) do
 
   create_table "ads", :force => true do |t|
     t.integer  "age"
-    t.string   "gender"
     t.string   "economy"
     t.string   "designation"
     t.string   "country"
@@ -27,6 +26,11 @@ ActiveRecord::Schema.define(:version => 20140823103252) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "catagory"
+    t.string   "adtitle"
+    t.boolean  "male"
+    t.boolean  "female"
+    t.boolean  "stay"
   end
 
   create_table "users", :force => true do |t|

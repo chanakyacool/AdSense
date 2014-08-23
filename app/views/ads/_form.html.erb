@@ -14,13 +14,27 @@
 <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
-  </div>
+  </div> 
+
+
+   <div><%= f.label :catagory %><br /> 
+         <%= f.select :catagory,  options_for_select(%w[Sports Movies BeautySaloons Travel Food Books Stocks Shopping Hotels ATM Hospitals PoliceStation FireStation]) %>
+       </div>
+
+       <div><%= f.label :for_every_user %><br />
+  <%= f.label :stay %>
+ <%= f.check_box :stay, :as => :check_box, input_html: {checked: false} %> 
+</div>
   <div class="field">
     <%= f.label :age %><br />
     <%= f.number_field :age %>
   </div>
 <div><%= f.label :gender %><br />
-  <%=  f.select :gender, options_for_select(%w[Male Female]) %></div>
+  <%= f.label :male %>
+ <%= f.check_box :male, :as => :check_box, input_html: {checked: false} %>
+ <%= f.label :female %>
+ <%= f.check_box :female, :as => :check_box, input_html: {checked: false} %>
+</div>
 
      <div><%= f.label :economy_range %><br /> 
          <%= f.select :economy,  options_for_select(%w[0-10000 10000-50000 50000-100000 >100000 ]) %>

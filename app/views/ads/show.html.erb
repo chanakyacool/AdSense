@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 <p>
   <b>Photo:</b>
-  <%= image_tag @ad.photo.url(:small) %>
-  <%= image_tag @ad.photo.url  %>
+  <%= image_tag @ad.photo.url(:small) %> 
+</p>
+
+<p>
+  <b>Catagory:</b>
+  <%= @ad.catagory %> 
+</p>
+
+<p>
+  <b>Stay:</b>
+  <%= @ad.stay %> 
 </p>
 <p>
   <b>Age:</b>
@@ -11,7 +20,8 @@
 
 <p>
   <b>Gender:</b>
-  <%= @ad.gender %>
+  <%= @ad.male %>
+  <%= @ad.female %>
 </p>
 
 <p>

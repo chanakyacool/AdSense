@@ -1,8 +1,13 @@
 class AdsController < ApplicationController
+
+
+  before_filter :authenticate_user!
+ 
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
+    @ads = Ad.find_all_by_stay(nil)
+    @ads_stay = Ad.find_all_by_stay(true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +49,7 @@ class AdsController < ApplicationController
 
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        format.html { redirect_to ads_path, notice: 'Ad was successfully created.' }
         format.json { render json: @ad, status: :created, location: @ad }
       else
         format.html { render action: "new" }

@@ -1,5 +1,5 @@
 class Ad < ActiveRecord::Base
-  attr_accessible :age, :city, :country, :designation, :economy, :gender, :state, :photo
+  attr_accessible :age, :city, :country, :designation, :economy, :male, :female, :state, :photo, :catagory, :adtitle, :stay
   has_attached_file :photo, :styles => { :small => "150x150>" },
                   :url  => "/assets/ad/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/ad/:id/:style/:basename.:extension"
