@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  age: 1
+  gender: MyString
+  economy: MyString
+  designation: MyString
+  country: MyString
+  state: MyString
+  city: MyString
+
+two:
+  age: 1
+  gender: MyString
+  economy: MyString
+  designation: MyString
+  country: MyString
+  state: MyString
+  city: MyString

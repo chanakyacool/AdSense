@@ -28,6 +28,7 @@ end
 gem 'jquery-rails'
 gem 'hirb'
 gem 'devise'
+gem "paperclip"
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 

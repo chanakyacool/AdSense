@@ -1,7 +1,10 @@
 AdSense::Application.routes.draw do
+  resources :ads
+
+
   get "home/index"
 
-  root :to => "home#index"
+  root :to => "ads#index"
   devise_for :users
 
   # The priority is based upon order of creation:

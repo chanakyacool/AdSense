@@ -1,0 +1,38 @@
+<h1>Listing ads</h1>
+
+<table>
+  <tr>
+    <th>Photo</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Economy</th>
+    <th>Designation</th>
+    <th>Country</th>
+    <th>State</th>
+    <th>City</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ads.each do |ad| %>
+  <tr>
+    <!-- <img src="/assets/rails.png"> -->
+    <td><%= image_tag ad.photo.url(:small) %></td>
+    <td><%= ad.age %></td>
+    <td><%= ad.gender %></td>
+    <td><%= ad.economy %></td>
+    <td><%= ad.designation %></td>
+    <td><%= ad.country %></td>
+    <td><%= ad.state %></td>
+    <td><%= ad.city %></td>
+    <td><%= link_to 'Show', ad %></td>
+    <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+    <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ad', new_ad_path %>

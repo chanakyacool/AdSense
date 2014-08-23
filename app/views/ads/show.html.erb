@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Photo:</b>
+  <%= image_tag @ad.photo.url(:small) %>
+  <%= image_tag @ad.photo.url  %>
+</p>
+<p>
+  <b>Age:</b>
+  <%= @ad.age %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @ad.gender %>
+</p>
+
+<p>
+  <b>Economy:</b>
+  <%= @ad.economy %>
+</p>
+
+<p>
+  <b>Designation:</b>
+  <%= @ad.designation %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @ad.country %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @ad.state %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @ad.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>

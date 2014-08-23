@@ -1,0 +1,45 @@
+<%= form_for(@ad) do |f| %>
+  <% if @ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+      <ul>
+      <% @ad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age %>
+  </div>
+<div><%= f.label :gender %><br />
+  <%=  f.select :gender, options_for_select(%w[Male Female]) %></div>
+
+     <div><%= f.label :economy_range %><br /> 
+         <%= f.select :economy,  options_for_select(%w[0-10000 10000-50000 50000-100000 >100000 ]) %>
+
+
+     <div><%= f.label :designation %><br />
+  <%= f.select :designation,  options_for_select(%w[Student Employee BusinessOwner]) %></div>
+
+     <div><%= f.label :country %><br />
+   <%= f.select :country, :id => "country", :name =>"country" %></div>
+
+     <div><%= f.label :state %><br />
+   <%= f.select :state, :id =>"state"%> </div>
+ 
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %> 
+<script language="javascript">
+  populateCountries("ad_country", "ad_state");  
+</script>
