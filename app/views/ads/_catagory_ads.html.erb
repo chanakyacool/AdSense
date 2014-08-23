@@ -1,0 +1,78 @@
+<% if age(current_user.dob) < 18 && current_user.gender == "Male"  %>
+      <% catads("Movies", "Sports").each do |ad| %>
+      <div class="col-md-2">
+         <div class="panel panel-default">
+            <div class="panel-image">
+               <%= image_tag ad.photo.url(:small) %>
+               <label for="toggle-1"></label>
+            </div>
+            <div class="panel-footer text-center">
+               <b><%= ad.adtitle %></b>|
+               <%= link_to 'Edit', edit_ad_path(ad) %> |<%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         </div>
+      </div>
+      <% end %>
+      <% elsif age(current_user.dob) < 18 && current_user.gender == "Female" %>
+      <% catads("Movies", "BeautySaloons", "Shopping").each do |ad| %>
+      <div class="col-md-2">
+         <div class="panel panel-default">
+            <div class="panel-image">
+               <%= image_tag ad.photo.url(:small) %>
+               <label for="toggle-1"></label>
+            </div>
+            <div class="panel-footer text-center">
+               <b><%= ad.adtitle %></b>|
+               <%= link_to 'Edit', edit_ad_path(ad) %> |<%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         </div>
+      </div>
+      <% end %>
+      <% elsif (18..30)=== age(current_user.dob) && current_user.gender == "Male"  %>
+      <% catads("Travel", "Stocks", "Food").each do |ad| %>
+      <div class="col-md-2">
+         <div class="panel panel-default">
+            <div class="panel-image">
+               <%= image_tag ad.photo.url(:small) %>
+               <label for="toggle-1"></label>
+            </div>
+            <div class="panel-footer text-center">
+               <b><%= ad.adtitle %></b>|
+               <%= link_to 'Edit', edit_ad_path(ad) %> |<%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         </div>
+      </div>
+      <% end %>
+      <% elsif (18..30)=== age(current_user.dob) && current_user.gender == "Female" %>
+      <% catads("Shopping", "BeautySaloons").each do |ad| %>
+      <div class="col-md-2">
+         <div class="panel panel-default">
+            <div class="panel-image">
+               <%= image_tag ad.photo.url(:small) %>
+               <label for="toggle-1"></label>
+            </div>
+            <div class="panel-footer text-center">
+               <b><%= ad.adtitle %></b>|
+               <%= link_to 'Edit', edit_ad_path(ad) %> |<%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         </div>
+      </div>
+      <% end %>
+      <% elsif (30..50)=== age(current_user.dob) %>
+      <% catads("Stocks","Temples").each do |ad| %>
+      <div class="col-md-2">
+         <div class="panel panel-default">
+            <div class="panel-image">
+               <%= image_tag ad.photo.url(:small) %>
+               <label for="toggle-1"></label>
+            </div>
+            <div class="panel-footer text-center">
+               <b><%= ad.adtitle %></b>|
+               <%= link_to 'Edit', edit_ad_path(ad) %> |<%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         </div>
+      </div>
+      <% end %>
+      <% else %>
+      sorry , we have no specific ads to your age group
+      <% end %>

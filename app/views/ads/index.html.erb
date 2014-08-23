@@ -1,32 +1,21 @@
 <h1>Listing ads</h1>
- 
- <div class="container" style="margin-top:10px;">
-    <div class="row form-group">
-
-        <% @ads.each do |ad| %>
-        <% end %>
-   
-<% @ads_stay.each  do |adstay| %> 
-        <div class="col-md-2">
-            <div class="panel panel-default">
-                <div class="panel-image">
-                    <%= image_tag adstay.photo.url(:small) %>
-                    <label for="toggle-1"></label>
-                </div> 
-               
-                <div class="panel-footer text-center">
-                   <b><%= adstay.adtitle %></b>|
-                   <%= link_to 'Edit', edit_ad_path(adstay) %> |<%= link_to 'Destroy', adstay, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </div>
-            </div>
-        </div>   
-
-        <% end %>
-    </div> 
+<div class="container" style="margin-top:10px;">
+   <div class="row form-group">
+      <%= render :partial => "catagory_ads" %>
+   </div>
 </div>
-
+<% @ads_stay.each  do |adstay| %> 
+<div class="col-md-2">
+   <div class="panel panel-default">
+      <div class="panel-image">
+         <%= image_tag adstay.photo.url(:small) %>
+         <label for="toggle-1"></label>
+      </div>
+      <div class="panel-footer text-center">
+         <b><%= adstay.adtitle %></b>|
+         <%= link_to 'Edit', edit_ad_path(adstay) %> |<%= link_to 'Destroy', adstay, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+   </div>
+</div>
+<% end %>
 <%= link_to 'New Ad', new_ad_path %>
- 
-
-        
-

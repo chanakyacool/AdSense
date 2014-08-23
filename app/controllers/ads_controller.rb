@@ -2,6 +2,7 @@ class AdsController < ApplicationController
 
 
   before_filter :authenticate_user!
+  helper_method :catads
  
   # GET /ads
   # GET /ads.json
@@ -85,4 +86,11 @@ class AdsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
+def catads(*args)
+  Ad.find_all_by_catagory_and_stay(args, nil)
+  
+end
 end
